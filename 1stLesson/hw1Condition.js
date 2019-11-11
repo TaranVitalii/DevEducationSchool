@@ -8,9 +8,9 @@ const c = 10;
 function sumOrMultiplication(a, b) {
   if (typeof a === "number" && typeof b === "number") {
     // validation input parameters
-    a % 2 === 0 ? console.log(a * b) : console.log(a + b);
+    return a % 2 === 0 ? a * b : a + b;
   } else {
-    console.log("uncorect value");
+    return "uncorect value";
   }
 }
 
@@ -28,16 +28,18 @@ function getCartesianQuarter(x, y) {
     // validation input parameters
 
     if (x > 0 && y > 0) {
-      console.log("first");
+      return "first";
     } else if (x < 0 && y > 0) {
-      console.log("second");
+      return "second";
     } else if (x < 0 && y < 0) {
-      console.log("third");
+      return "third";
     } else if (x > 0 && y < 0) {
-      console.log("fourth");
+      return "fourth";
+    } else {
+      return "uncorect value";
     }
   } else {
-    console.log("uncorect value");
+    return "uncorect value";
   }
 }
 
@@ -49,23 +51,22 @@ getCartesianQuarter(plusX, minusY);
 // Найти суммы только положительных из трех чисел /////////////////////////////////////////////////
 function getPositiveSum(a, b, c) {
   if (typeof a === "number" && typeof b === "number" && typeof c === "number") {
-    // validation input parameters
-    if (a > 0 && b > 0 && c > 0) {
-      console.log(a + b + c);
-    } else if (a <= 0 && b > 0 && c > 0) {
-      console.log(b + c);
-    } else if (a > 0 && b <= 0 && c > 0) {
-      console.log(a + c);
-    } else if (a > 0 && b > 0 && c <= 0) {
-      console.log(b + a);
-    } else if (a <= 0 && b <= 0 && c <= 0) {
-      console.log("enter positive number");
+    let sum = 0;
+    if (a > 0) {
+      sum += a;
     }
+    if (b > 0) {
+      sum += b;
+    }
+    if (c > 0) {
+      sum += c;
+    }
+    return sum;
   } else {
     console.log("enter number");
   }
 }
-getPositiveSum(a, b, c);
+console.log(getPositiveSum(a, b, c), "sumPos");
 
 // Посчитать выражение макс(а*б*с, а+б+с)+3 /////////////////////////////////////////////////////////////////
 function getValue(a, b, c) {
@@ -73,37 +74,39 @@ function getValue(a, b, c) {
     // validation input parameters
     let mult = a * b * c;
     let sum = a + b + c;
-    return console.log(Math.max(mult, sum) + 3);
+    return Math.max(mult, sum) + 3;
   } else {
-    console.log("enter number");
+    return "enter number";
   }
 }
 
-getValue(a, b, c);
+console.log(getValue(a, b, c));
 
 // Написать программу определения оценки студента по его рейтингу, /////////////////////////////////////////////
 function getAssessment(value) {
   if (typeof value === "number") {
     // validation input parameters
     if (value >= 0 && value <= 19) {
-      console.log("F");
+      return "F";
     } else if (value >= 20 && value <= 39) {
-      console.log("E");
+      return "E";
     } else if (value >= 40 && value <= 59) {
-      console.log("D");
+      return "D";
     } else if (value >= 60 && value <= 74) {
-      console.log("C");
+      return "C";
     } else if (value >= 75 && value <= 89) {
-      console.log("B");
+      return "B";
     } else if (value >= 90 && value <= 100) {
-      console.log("A");
+      return "A";
+    } else {
+      console.log("enter number");
     }
   } else {
     console.log("enter number");
   }
 }
 getAssessment("19");
-getAssessment(39);
+console.log(getAssessment(39));
 getAssessment(59);
 getAssessment(74);
 getAssessment(89);

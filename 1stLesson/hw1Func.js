@@ -20,7 +20,7 @@ function myGetDay(allDay) {
   return daysOfWeek[notFullWeek - 1];
 }
 
-console.log(myGetDay(45));
+console.log(myGetDay(1));
 // Найти расстояние между двумя точками в двухмерном декартовом пространстве.
 function getLengthBetweenTwoSpots(x1, y1, x2, y2) {
   let xAction = Math.pow(x2 - x1, 2);

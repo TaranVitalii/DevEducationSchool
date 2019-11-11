@@ -5,21 +5,17 @@ const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 20, 20];
 function getSummAndCount(value) {
   let sum = 0;
   let count = 0; //count even numbers
-  for (let i = 0; i < value.length; i++) {
+  for (let i = 0; i <= 99; i++) {
     let item = value[i];
     if (item % 2 === 0) {
       sum += item;
       count++;
     }
-    if (count >= 99) {
-      let result = { sum, count };
-      return console.log(result);
-    }
   }
   let result = { sum, count };
-  return console.log(result);
+  return result;
 }
-getSummAndCount(data);
+console.log(getSummAndCount(data), "sum and count");
 
 // Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)/////////////////////////
 function isPrime(n) {
@@ -87,14 +83,17 @@ function factorial(n) {
 console.log(factorial(4));
 
 // Посчитать сумму цифр заданного числа////////////////////////////////////////////////////////////////////
-function sumFactorial(n) {
+function sumNumber(num) {
   let sum = 0;
-  for (let i = 0; i <= n; i++) {
-    sum += i;
+  let tmp;
+  while (num) {
+    tmp = num % 10;
+    num = (num - tmp) / 10;
+    sum += tmp;
   }
   return sum;
 }
-console.log(sumFactorial(5));
+console.log(sumNumber(12345), "sumNumber");
 // Вывести число, которое является зеркальным отображением последовательности цифр заданного числа, например,
 //  задано число 123, вывести 321.///////////////////////////////////////////////////////////////////////////
 function revers(n) {

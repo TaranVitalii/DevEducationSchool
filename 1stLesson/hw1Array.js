@@ -9,22 +9,22 @@ function getMinValue(value) {
       min = value[i];
     }
   }
-  return console.log(min, "min number in array");
+  return min;
 }
-getMinValue(data);
+console.log(getMinValue(data), "min number in array");
 
 // Найти максимальный элемент массива
 function getMaxValue(value) {
   let max = value[0];
 
   for (let i = 0; i < value.length; i++) {
-    if (value[i] < max) {
+    if (value[i] > max) {
       max = value[i];
     }
   }
-  return console.log(max, "max number in array");
+  return max;
 }
-getMaxValue(data);
+console.log(getMaxValue(data), "max number in array");
 
 // Найти индекс минимального элемента массива
 function getMinValueIndex(value) {
@@ -37,27 +37,27 @@ function getMinValueIndex(value) {
   }
   for (let i = 0; i < value.length; i++) {
     if (min === value[i]) {
-      return console.log(i, "min number index");
+      return i;
     }
   }
 }
-getMinValueIndex(data);
+console.log(getMinValueIndex(data), "min number index");
 // Найти индекс максимального элемента массива
 function getMaxValueIndex(value) {
   let max = value[0];
 
   for (let i = 0; i < value.length; i++) {
-    if (value[i] < max) {
+    if (value[i] > max) {
       max = value[i];
     }
   }
   for (let i = 0; i < value.length; i++) {
     if (max === value[i]) {
-      return console.log(i, "max number index");
+      return i;
     }
   }
 }
-getMaxValueIndex(data);
+console.log(getMaxValueIndex(data), "max number index");
 
 // Посчитать сумму элементов массива с нечетными индексами
 function getSummOddElements(value) {
@@ -66,9 +66,9 @@ function getSummOddElements(value) {
     let item = value[i];
     sum += item;
   }
-  return console.log(sum);
+  return sum;
 }
-getSummOddElements(data);
+console.log(getSummOddElements(data));
 
 // Сделать реверс массива (массив в обратном направлении)
 function myReversArray(value) {
@@ -76,35 +76,37 @@ function myReversArray(value) {
   for (let i = 0; i < value.length; i++) {
     reverseArray[i] = value[value.length - 1 - i];
   }
-  return console.log(reverseArray, "revArray");
+  return reverseArray;
 }
-myReversArray(data);
+console.log(myReversArray(data), "revArray");
 
 // Посчитать количество нечетных элементов массива
 function getCountOddElements(value) {
   let count = 0;
-  value.forEach((item, idx) => {
-    if (idx % 2 !== 0 || idx === 0) {
-      count += 1;
-    }
-  });
-  return console.log(count);
+  for (let i = 1; i <= value.length; i += 2) {
+    console.log(i);
+    count += 1;
+  }
+  return count;
 }
-getCountOddElements(data);
+console.log(getCountOddElements(data), "count");
 
 // Поменять местами первую и вторую половину массива, например, для массива 1 2 3 4, результат 3 4 1 2
 function getReverseHalfArray(value) {
   let lengthArray = (value.length - 1) / 2;
   let lastLengthArray = value.length - lengthArray;
-  let firstHalf = value.splice(0, lengthArray).reverse();
-  let secondHalf = value.splice(-lastLengthArray, lastLengthArray).reverse();
-  return console.log([...firstHalf, ...secondHalf]);
+  let firstHalf = value.splice(0, lengthArray);
+  let secondHalf = value.splice(-lastLengthArray, lastLengthArray);
+  let firstHalfReverse = myReversArray(firstHalf);
+  let secondHalfReverse = myReversArray(secondHalf);
+  return console.log([...firstHalfReverse, ...secondHalfReverse]);
 }
 getReverseHalfArray(data);
 
 // Отсортировать массив (пузырьком (Bubble), выбором (Select), вставками (Insert))
 let data1 = [2, 3, 4, 5, 6, 7, 8, 9, 1, 23, 4, 123, 12];
 let data2 = [10, 15, 20, 30, 12, 2, 4, 56, 0];
+
 function bubleSort(array) {
   for (let i = array.length; i > 0; i--) {
     for (let j = 0; j < i; j++) {
