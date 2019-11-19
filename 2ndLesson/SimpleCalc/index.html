@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <title>Simple calc</title>
+    <div class="container" data-container='container'>
+<div class="item input"><form name="form"><input type="text" name="textview" readonly/></form></div>
+<div class="item clean" data-remove="remove">C</div>
+<div class="item back" data-back="back">&larr;</div>
+<div class="item " data-item="+">+</div>
+<div class="item " data-item="-">-</div>
+<div class="item " data-item="*">&times;</div>
+<div class="item " data-item="/">&divide;</div>
+<div class="item " data-item="7">7</div>
+<div class="item " data-item="8">8</div>
+<div class="item " data-item="9">9</div>
+<div class="item " data-item=".">.</div>
+<div class="item " data-item="4">4</div>
+<div class="item " data-item="5">5</div>
+<div class="item " data-item="6">6</div>
+<div class="item zero" data-item="0">0</div>
+<div class="item " data-item='1'>1</div>
+<div class="item " data-item="2">2</div>
+<div class="item " data-item="3">3</div>
+<div class="item equal" data-equal="equal">=</div>
+
+
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script src="./node_modules/sinon/pkg/sinon.js"></script>
+
+
+    <script class="mocha-init">
+      mocha.setup("bdd");
+    </script>
+    <script>
+      var assert = chai.assert;
+    </script>
+    <script src="actions.js"></script>
+    <script src="test.js"></script>
+    <script class="mocha-exec">
+      mocha.run();
+    </script>
+  </body>
+</html>
